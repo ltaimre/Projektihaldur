@@ -1,2 +1,3 @@
 # Projektihaldur
-Projekt java 
+Projekt aine veebirakendused jaoks. Koolitöö
+
