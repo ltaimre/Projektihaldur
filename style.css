@@ -9,3 +9,23 @@
 	border:none;
 	color: blue;
 }
+
+/* actionsheet */
+#actionsheet {
+	width: 80%;
+}
+
+#lastdone {
+	text-decoration: line-through;
+}
+
+#doing  {
+	font-size: 300%;
+}
+
+
+
+
+
+
+
