@@ -1,0 +1,18 @@
+ltaimre_users
+  User_ID
+  Username
+  Password
+  
+ltaimre_projects
+  User_ID
+  Projectname
+  Date
+  Project_ID
+  
+ltaimre_tasks
+  Project_ID
+  Taskname
+  Task_id
+  Status
+  
+  
