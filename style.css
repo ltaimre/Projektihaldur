@@ -21,6 +21,17 @@
 	color: blue;
 }
 
+/* projects */
+	
+.projectbox {
+		border: solid black 2px;
+		width: 30%;
+		padding: 10px;
+		display: inline-block;
+		
+	}
+
+
 /* actionsheet */
 #actionsheet {
 	width: 80%;

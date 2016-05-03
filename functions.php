@@ -11,16 +11,16 @@ function connect_db(){
 	mysqli_query($connection, "SET CHARACTER SET UTF8") or die("Ei saanud baasi utf-8-sse - ".mysqli_error($connection));
 }
 
-//laeb projektid
-function get_tasks() {
-	$tasks = array();
-	
-	$taskquery= mysqli_query($GLOBALS['connection'], "SELECT taskname FROM ltaimre_tasks");
-	while ($row = mysqli_fetch_assoc($taskquery)) {
-			$tasks[]= $row['taskname'];
+//loeb andmebaasist nimekirja
+function get_array($field, $filename) {
+	$array = array();
+	$command= "SELECT ".$field." FROM ".$filename;
+	$arrayquery= mysqli_query($GLOBALS['connection'], $command);
+	while ($row = mysqli_fetch_assoc($arrayquery)) {
+			$array[]= $row[$field];
 		}
-		
-	return($tasks);
+	return($array);
 }
+
 
 ?>

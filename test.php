@@ -1,9 +1,7 @@
 <?php
 require_once('functions.php');
 connect_db();
-$tasks=get_tasks();
-
-echo implode(" ", $tasks); ?>
+$tasks=get_array("taskname", "ltaimre_tasks"); ?>
 
 <ol>
 <?php
