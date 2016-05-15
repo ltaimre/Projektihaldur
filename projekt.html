@@ -3,25 +3,28 @@
 <head>
 <meta charset="utf-8" />
 <title>Projektihaldur</title>
-<script src="script.js" type="text/javascript"></script> 
+
+
+<script src="script.js"></script> 
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div class=projectsheet contenteditable> 
 		<h3></h3>
-		<hr>
 		
-		<div class=actionlist>
+		<div>
 			<ol>
-			<li contenteditable></li>
-			<li contenteditable></li>
-			<li contenteditable></li>
-			<li contenteditable></li>
-			<li contenteditable></li>
+			<li contenteditable class=actionlist></li>
+			<li contenteditable class=actionlist></li>
+			<li contenteditable class=actionlist></li>
+			<li contenteditable class=actionlist></li>
+			<li contenteditable class=actionlist></li>
 				
 			</ol>
 		</div>
-		<div id="clockdiv">Katsetan</div>
+	</div>
+		<button onclick="savetasks('actionlist')">Salvesta</button>
+	
 
 </body>
 </html>
