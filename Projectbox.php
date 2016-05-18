@@ -6,4 +6,7 @@ $projects=get_array("projectname", "ltaimre_projects");
 foreach ($projects as $project) {
 		include "projectboxview.html";
 		}
-?>
+?>	
+<html>
+<hr>
+</html>
