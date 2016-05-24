@@ -12,9 +12,9 @@ function connect_db(){
 }
 
 //loeb andmebaasist nimekirja
-function get_array($field, $filename) {
+function get_array($field, $filename, $id, $value) {
 	$array = array();
-	$command= "SELECT ".$field." FROM ".$filename;
+	$command= "SELECT ".$field." FROM ".$filename." WHERE ".$id."='".$value."'";
 	$arrayquery= mysqli_query($GLOBALS['connection'], $command);
 	while ($row = mysqli_fetch_assoc($arrayquery)) {
 			$array[]= $row[$field];
@@ -22,5 +22,11 @@ function get_array($field, $filename) {
 	return($array);
 }
 
+//ühe elemendi lugemiseks
+function get_item($field, $filename, $id, $value) {
+	$command= "SELECT ".$field." FROM ".$filename." WHERE ".$id."=".$value;
+	$item= mysqli_query($GLOBALS['connection'], $command);
+	return($item);
+}
 
 ?>

@@ -6,18 +6,31 @@ $(document).ready(function(){
 		$.each($('.actionlist'), function (index, value) { 
 			tasklist[index] = $(value).text();
 			console.log(tasklist[index]); 
-			});
-  
-	$.ajax({        
-       type: "POST",
-       url: "savetoDB.php",
-       data:  { taskArray : tasklist },
-			}); 
-			
-	window.open("http://enos.itcollege.ee/~ltaimre/Projektihaldur/savetoDB.php");
+			});	
 	
-		});
 });
+
+
+	$( ".projectbox" ).click(function() {
+		var id = $(this).attr('id');
+		console.log(id);
+		$.get ({
+		url: "project.php",
+		data: {projectid: id},
+		success: function(data){
+			console.log(data),
+			window.location.href="project.php?projectid="+data
+				}
+		});
+		});
+		
+		});
+		
+
+
+
+
+
 
 	
 
