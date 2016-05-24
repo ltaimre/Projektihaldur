@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script src="script.js"></script> 
 	</head>
 
@@ -17,6 +17,7 @@
 		$result=mysqli_query($GLOBALS['connection'], "SELECT * FROM ltaimre_projects WHERE project_ID=".$project);
 		$projectRow=mysqli_fetch_array($result);
 		include "projectboxview.html";
+		echo $_POST["projectid"];
 		}
 ?>	
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <title>Projektihaldur</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="script.js"></script> 
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -16,15 +16,18 @@
 		
 		
 		
-			<ol>
+			<p>
 			
 			<?php 
-			foreach ($tasks as $task):
 			
-				$task = htmlspecialchars($task);?>
-				<li contenteditable class=actionlist><?php echo $task ?></li>
-				<?php endforeach; ?>
-			</ol>
+			$page=htmlspecialchars($_POST["projectid"]);
+			echo $page;
+			
+			
+			
+			
+			?>
+			</p>
 				
 	</div>
 		<button id=salvestusnupp>Salvesta</button>

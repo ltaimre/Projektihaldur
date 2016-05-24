@@ -14,14 +14,14 @@ $(document).ready(function(){
 	$( ".projectbox" ).click(function() {
 		var id = $(this).attr('id');
 		console.log(id);
-		$.get ({
+		$.post ({
 		url: "project.php",
 		data: {projectid: id},
 		success: function(data){
 			console.log(data),
-			window.location.href="project.php?projectid="+data
+			window.location.href="project.php"
 				}
-		});
+		}); 
 		});
 		
 		});

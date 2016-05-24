@@ -1,0 +1,83 @@
+<?php
+require_once('functions.php');
+connect_db();
+
+/*if(isset($_SESSION['user'])!="") //kontrollib, ega kasutaja pole juba sisse logitud
+{
+ $page="mainview";
+} */
+
+if(isset($_POST['signup']))
+{$username = mysqli_real_escape_string($GLOBALS['connection'], $_POST['username']);
+ $password = SHA1(mysqli_real_escape_string($GLOBALS['connection'], $_POST['password']));
+ 
+ 
+ if(mysqli_query($GLOBALS['connection'], "INSERT INTO ltaimre_users(username,password) VALUES('$username','$password')"))
+{
+    $_GET['page'] = "mainview";
+ }
+ else
+ {
+  ?>
+        <script>alert('error while registering you...');</script>
+        <?php
+ }
+}
+
+
+if(isset($_POST['login']))
+{
+ $username = mysqli_real_escape_string($GLOBALS['connection'], $_POST['username']);
+ $password = mysqli_real_escape_string($GLOBALS['connection'], $_POST['password']);
+ $result=mysqli_query($GLOBALS['connection'],"SELECT * FROM ltaimre_users WHERE username='$username'");
+ $row=mysqli_fetch_array($result);
+
+
+ if($row['password']==SHA1($password))
+  {
+  $_SESSION['user'] = $row['user_ID'];
+  
+  echo $row['user_ID'];
+	header("Location: ?page=mainview");
+ }
+ else
+ {   
+  ?>
+	 
+	 <script>alert('wrong details');</script>
+        <?php
+ }
+ 
+}
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Projektihaldur</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class=bigbox> 
+	<h3>Projektihaldur</h3>
+	<div class=smallbox>
+	<form action="?page=login" method="POST">
+		Kasutajanimi: <input type="text" name="username"><br>
+		Parool: <input type="password" name="password"><br>
+		<button type="submit" name="signup">Registreeri</button>
+		</form>
+		
+	</div>
+	<div class=smallbox>
+	<form action="?page=login" method="POST">
+		Kasutajanimi: <input type="text" name="username"><br>
+		Parool: <input type="password" name="password"><br>
+		<button type="submit" name="login">Logi sisse!</button>
+</form>
+	</div>
+	</div>
+	
+</body>
+</html>

@@ -13,10 +13,10 @@
 	$userRow=mysqli_fetch_array($result);
 	
 	
-	echo $_GET["projectid"];
 	
-	$tasks=get_array("taskname", "ltaimre_tasks", "project_ID", $_GET["projectid"]); 
-	include "Views/greetingheading.html";
+	echo $_SESSION['name'];
+	//$tasks=get_array("taskname", "ltaimre_tasks", "project_ID", $_GET["projectid"]); 
+	//include "Views/greetingheading.html";
 	include "Views/projectpage.html";
 	
 	
