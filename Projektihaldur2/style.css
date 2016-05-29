@@ -1,39 +1,99 @@
+body{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+
 .bigbox {
 	border: solid black;
 	border-radius: 10px;
-	height: 600px;
+	padding:5%;
 	width: 70%;
 	margin: 0 auto;
 	text-align: center;
+	margin-top: 5%;
 }
 
 .smallbox {
 	border: solid black;
 	border-radius: 10px;
-	height: 80%;
-	width: 45%;
+	padding: 5%;
+	width: 30%;
 	display: inline-block;
 	text-align: center;
 }
+
+
+	
+.formbox {
+		border: solid black;
+		width: 40%;
+		padding: 5%;
+		border-radius: 10px;
+		background-color: white;
+		text-align: center;
+		margin-top: 5%; 
+	}
 
 /* projects */
 	
 .projectbox {
 		border: solid black;
 		width: 30%;
-		padding: 10px;
-		display: inline-block;
+		padding: 10%;
 		border-radius: 10px;
+		background-color: white;
 		text-align: center;
-		margin: 0 auto;
-		
-		
+		display: inline;
 	}
+	
+.btn:hover {
+	background-color: #3366FF;
+}
 	
 .headingbox {
 	width: 95%;
-	height: 200 px;
 	border: solid black;
 	border-radius: 10px;
 	margin: 0 auto;
+	text-align: center;
+	display: inline-block;
+}
 
+.actionbox {
+	border: solid black;
+	width: 50%;
+	padding: 10%;
+	border-radius: 10px;
+	margin: 0 auto; 
+	display: inline-block;
+	
+}
+
+.button-border {
+	width: 50%;
+	margin: 0 auto; 
+	
+}
+
+
+.project-border {
+	width: 80%;
+	text-align: left;
+
+	
+	
+}
+
+.right {
+	float: right;
+}
+
+.newlist {
+
+	color: #C0C0C0;
+}
+
+.newlist:focus {
+	text-decoration: underline;
+	text-decoration-color: black;
+}

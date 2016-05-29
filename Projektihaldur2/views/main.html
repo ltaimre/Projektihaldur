@@ -9,40 +9,44 @@ $projects=get_array("project_ID", "ltaimre_projects", "user_ID", $_SESSION['user
 
 ?>
 	
-	
-
 
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Projektid</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script src="script.js"></script> 
 	</head>
 
 	<body>
-<div class=headingbox>
+<div class="bigbox">
 	
-
+<div class="project-border">
 
 <?php 
-	foreach ($projects as $project):
-		$result=mysqli_query($GLOBALS['connection'], "SELECT * FROM ltaimre_projects WHERE project_ID=".$project);
-	$projectRow=mysqli_fetch_array($result); ?>	
-	<div class=projectbox id=<?php echo $projectRow["project_ID"]?>>
-	<h1><?php echo $projectRow["projectname"]?></h1>
-	</div>
-	<?php endforeach ?>
-
-		
- 
- 
 	
-
+	
+	foreach ($projects as $project):
+	$result=mysqli_query($GLOBALS['connection'], "SELECT * FROM ltaimre_projects WHERE project_ID=".$project);
+	$projectRow=mysqli_fetch_array($result); ?>	
+	<form action="?page=project" method="POST">
+	<input type="hidden" name="projectid" value=<?php echo $projectRow["project_ID"]?>>
+	<button class="projectbox btn send" type="submit" name="project"><?php echo $projectRow["projectname"]?></button>
+	</form>
+	<?php endforeach ?>
+	
+	<form action="?page=project" method="POST">
+	<input type="hidden" name="projectid" value="new">
+	<button class="projectbox btn send" type="submit" name="project">Loo uus projekt!</button>
+	</form>
+	
+	
+</div>
 
 </div>
 	
-	</body
+	</body>
 	
 </html>

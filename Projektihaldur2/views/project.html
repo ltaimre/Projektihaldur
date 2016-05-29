@@ -1,13 +1,72 @@
+<?php
+require_once('functions.php');
+connect_db();
+
+if(isset($_POST['projectid'])&& $_POST['projectid'] !== 'new'){
+$tasks=get_array("task_ID", "ltaimre_tasks", "project_ID", $_POST['projectid']); 
+$result=mysqli_query($GLOBALS['connection'], "SELECT * FROM ltaimre_projects WHERE project_ID=".$_POST['projectid']);
+$projectRow=mysqli_fetch_array($result);
+$project=$projectRow["projectname"];
+//$class="actionlist";
+}
+else 
+	{
+
+$project="Sisesta projekti pealkiri";
+//$class="newlist";
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Projekt</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script src="script.js"></script> 
 	</head>
 	<body>
-	<?php print_r($_POST)?>
+	
+	<div class="bigbox"> 
+	<div class="button-border">
+	<button class="formbox btn right" id="change">Muuda</button>
+	<button class="formbox btn right" id="salvestusnupp">Salvesta</button>
+	</div>
+	
+	<div class="actionbox">
+		<h1 class="newlist" contenteditable=true > <?php echo $project ?></h1>
+		</br>
+		
+
+	
+		
+		
+		<ol>
+		<form action="?page=login" method="POST"">
+		<?php 
+			foreach ($tasks as $task):
+			$result=mysqli_query($GLOBALS['connection'], "SELECT * FROM ltaimre_tasks WHERE task_ID=".$task);
+			$taskRow=mysqli_fetch_array($result); 
+			
+			?>	
+			
+			
+		
+			<li>
+			<label for="cb" class=actionlist><?php echo $taskRow["taskname"]?></label>
+			<input type="checkbox" name="task" class="cb" value=<?php echo $taskRow["taskname"]?>>	
+			</li>
+			<?php endforeach ?>
+			</form>
+			</ol>
+			
+
+</div>
+				
+	</div>
+		
 	<body>
 <html>
 	

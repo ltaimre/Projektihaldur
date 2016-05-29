@@ -19,13 +19,14 @@ function get_array($field, $filename, $id, $value) {
 	while ($row = mysqli_fetch_assoc($arrayquery)) {
 			$array[]= $row[$field];
 		}
-	return($array);
+		return($array);
 }
 
 //ühe elemendi lugemiseks
 function get_item($field, $filename, $id, $value) {
 	$command= "SELECT ".$field." FROM ".$filename." WHERE ".$id."=".$value;
 	$item= mysqli_query($GLOBALS['connection'], $command);
+	echo $item;
 	return($item);
 }
 

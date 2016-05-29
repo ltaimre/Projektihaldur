@@ -15,7 +15,7 @@ if(isset($_POST['signup']))
  else
  {
   ?>
-        <script>alert('error while registering you...');</script>
+        <script>alert('Ei õnnestunud registreerida!');</script>
         <?php
  }
 }
@@ -40,7 +40,7 @@ if(isset($_POST['login']))
  {   
   ?>
 	 
-	 <script>alert('wrong details');</script>
+	 <script>alert('Vale kasutajanimi või parool');</script>
         <?php
  }
  
@@ -56,22 +56,22 @@ if(isset($_POST['login']))
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<?php print_r($_REQUEST)?>
-	<div class=bigbox> 
-	<h3>Projektihaldur</h3>
-	<div class=smallbox>
+
+	<div class="bigbox"> 
+	<h3> PROJEKTIHALDUR</h3>
+	<div class="smallbox">
 	<form action="?page=login" method="POST">
-		Kasutajanimi: <input type="text" name="username"><br>
-		Parool: <input type="password" name="password"><br>
-		<button type="submit" name="signup">Registreeri</button>
+		<input class="formbox"  type="text" name="username" placeholder="Kasutajanimi"><br>
+		<input class="formbox" type="password" name="password" placeholder="Parool"><br>
+		<button class="formbox btn"type="submit" name="signup">Registreeri!</button>
 		</form>
 		
 	</div>
-	<div class=smallbox>
+	<div class="smallbox">
 	<form action="?page=login" method="POST">
-		Kasutajanimi: <input type="text" name="username"><br>
-		Parool: <input type="password" name="password"><br>
-		<button type="submit" name="login">Logi sisse!</button>
+		<input class="formbox"  type="text" name="username" placeholder="Kasutajanimi"><br>
+		<input class="formbox"  type="password" name="password" placeholder="Parool"><br>
+		<button class="formbox btn" type="submit" name="login">Logi sisse!</button>
 </form>
 	</div>
 	</div>

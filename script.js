@@ -10,19 +10,9 @@ $(document).ready(function(){
 	
 });
 
-
-	$( ".projectbox" ).click(function() {
-		var id = $(this).attr('id');
-		console.log(id);
-		$.post ({
-		url: "project.php",
-		data: {projectid: id},
-		success: function(data){
-			console.log(data),
-			window.location.href="project.php"
-				}
-		}); 
-		});
+$( "#target" ).submit(function( event ) {
+  window.location.href="?page=project"
+});
 		
 		});
 		
