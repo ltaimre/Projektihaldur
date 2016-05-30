@@ -24,7 +24,8 @@ $project="Sisesta projekti pealkiri";
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Projekt</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="script.js"></script> 
 	</head>
 	<body>
@@ -32,19 +33,19 @@ $project="Sisesta projekti pealkiri";
 	<div class="bigbox"> 
 	<div class="button-border">
 	<button class="formbox btn right" id="change">Muuda</button>
-	<button class="formbox btn right" id="salvestusnupp">Salvesta</button>
+	<input type="button" class="formbox btn right" id="salvestusnupp" onclick='savelist("taskelement")' value="salvesta">
 	</div>
 	
 	<div class="actionbox">
-		<h1 class="newlist" contenteditable=true > <?php echo $project ?></h1>
+		<h1 class="newlist tasklist" contenteditable=true draggable=true ondragstart="drag(event)"> <?php echo $project ?></h1>
 		</br>
 		
 
 	
 		
 		
-		<ol>
-		<form action="?page=login" method="POST"">
+		<ul id="sortable">
+			
 		<?php 
 			foreach ($tasks as $task):
 			$result=mysqli_query($GLOBALS['connection'], "SELECT * FROM ltaimre_tasks WHERE task_ID=".$task);
@@ -53,14 +54,25 @@ $project="Sisesta projekti pealkiri";
 			?>	
 			
 			
-		
-			<li>
-			<label for="cb" class=actionlist><?php echo $taskRow["taskname"]?></label>
-			<input type="checkbox" name="task" class="cb" value=<?php echo $taskRow["taskname"]?>>	
+			<li class="taskelement undone">
+			<?php echo $taskRow["taskname"]?>
+			<input class="chbx" onclick='done(this)' name="jee" type = "checkbox" />
 			</li>
 			<?php endforeach ?>
-			</form>
-			</ol>
+
+			</ul>
+		
+			<input id="newtask" type="text" >
+			<input type='button' onclick='additem()' value='Submit'/> 
+			
+			<?php if(isset($_POST['name'])) {
+				echo $_POST['name'];
+				}
+				
+			?>
+
+
+	
 			
 
 </div>
