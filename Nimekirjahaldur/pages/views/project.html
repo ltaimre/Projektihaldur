@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Projekt</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="script.js"></script> 
+	</head>
+	<body>
+	
+	<div class="bigbox"> 
+	
+		<form action="?page=save" method="POST">
+		<button class="formbox btn" type="submit" name="tobesaved">Salvesta</button>
+		<hr>
+	    
+		<h3> <?php echo $project ?> </h3>
+	
+		
+		<ul id="sortable">
+			
+		<?php 
+			foreach ($tasks as $task):
+			$result=mysqli_query($GLOBALS['connection'], "SELECT * FROM ltaimre_tasks WHERE task_ID=".$task);
+			$taskRow=mysqli_fetch_array($result); 
+			if ($taskRow["taskstatus"]=="tehtud") {
+				$class="done";
+				}
+			else {
+				$class="undone";
+				}
+		
+			?>	
+			
+			<li class=<?php echo $class?>>	
+			<?php echo $taskRow["taskname"]?>
+			<input type="hidden" name="saveitem[]" value=<?php echo $taskRow["taskname"]?>>
+			<input class="chbx"  name="status[]" onclick='done(this)' type = "checkbox" />
+	
+			</li>
+			<?php endforeach ?>
+			
+
+			</ul>
+			
+		</form>
+			
+
+</div>
+				
+
+		
+	<body>
+<html>

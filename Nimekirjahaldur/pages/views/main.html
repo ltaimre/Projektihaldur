@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Projektid</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="script.js"></script> 
+	</head>
+
+	<body>
+<div class="bigbox">
+	
+
+<div class="listbox btn" onclick="window.location.href='?page=newproject'"> <h3>Loo uus nimekiri!</h3></div>
+	
+	<h3> Minu nimekirjad:</h3>
+	<?php 
+	foreach ($projects as $project):
+	$projectname=get_item("projectname", "ltaimre_projects", "project_ID", $project);
+	$projectID=$project;
+	?>	
+
+	<form action="?page=project" method="POST">
+	<input type="hidden" name="projectid" value=<?php echo $projectID ?>>
+	<button class="listbox btn send" type="submit" name="project"><?php echo $projectname?></button>
+	</form>
+	<?php endforeach ?>
+
+	
+
+</div>
+	
+	</body>
+	
+</html>

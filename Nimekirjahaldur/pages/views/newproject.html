@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Uus projekt</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="script.js"></script> 
+	</head>
+	<body>
+	
+	<div class="bigbox"> 	
+
+		<form action="?page=newproject" method="POST">
+		<button class="formbox btn" type="submit" name="projectheading">Salvesta nimekiri</button>
+		<hr>
+		<div id="forheading"></div>
+	
+		<input class="temporary" id="newproject" type="text" placeholder="Lisa projekti pealkiri">
+		<input class="btn formbox temporary" type='button' onclick='addheading()' value='Sisesta pealkiri'/> 
+
+			<ul id="sortable">
+				</ul>
+		</form>
+		
+			<input id="newtask" type="text" placeholder="Lisa ülesanne" >
+			<input class=" formbox btn" type='button' onclick='additem()' value='Sisesta ülesanne'/> 
+
+				
+	</div>
+		
+	<body>
+<html>
+	

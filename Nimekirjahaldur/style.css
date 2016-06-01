@@ -1,0 +1,55 @@
+body{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+
+
+.btn:hover {
+	background-color: #3366FF;
+}
+
+
+
+.bigbox {
+	border: solid black;
+	border-radius: 10px;
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 3%;
+	
+}
+
+.invisible{
+	width: 70%;
+	margin: 0 auto;
+	text-align: right;
+	
+}
+
+.listbox {
+		border: solid black;
+		border-radius: 10px;
+		background-color: white;
+		text-align: center;
+		padding: 1%;
+		width: 20%;
+	}
+
+	
+.formbox {
+		border: solid black;
+		border-radius: 10px;
+		background-color: white;
+		text-align: center;
+		margin-top: 5%; 
+		padding: 1%;
+		width: 20%;
+	}
+
+
+
+.done {
+    text-decoration: line-through;
+}
+
